@@ -1,0 +1,68 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+
+crypto:
+  currency: usd
+  email-to-notify: test@test.com
+  coinMap:
+    coin1:
+      coin-id: bitcoin
+      max-value: 39000
+      min-value: 35597
+      enabled: true
+    coin2:
+      coin-id: ethereum
+      max-value: 39000
+      min-value: 35597
+      enabled: false
+    coin3:
+      coin-id: tether
+      max-value: 39000
+      min-value: 35597
+      enabled: false
+    coin4:
+      coin-id: avalanche-2
+      max-value: 39000
+      min-value: 35597
+      enabled: false
+    coin5:
+      coin-id: litecoin
+      max-value: 39000
+      min-value: 35597
+      enabled: false
+
+scheduler:
+  frequency: 2000
+
+logging:
+  level:
+    org.springframework.web.client.RestTemplate: DEBUG
+
+
+#email account password: FiverrEmailSender
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3308/PriceTracker
+    username: root
+    password: password
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.MariaDB103Dialect
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        show_sql: false
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: cryptopricenotify@gmail.com
+    password: vuphmdkbnkxvgdnx
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
